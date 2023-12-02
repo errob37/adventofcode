@@ -1,8 +1,6 @@
 package days
 
 interface AdventOfCodeDay {
-    fun getTestExpectedOutput(): Long
-    fun getInputFileName() : String
-    fun partOne() :Long
-    fun partTwo(): Long
+    fun partOne(input: List<String>): Long
+    fun partTwo(input: List<String>): Long
 }

@@ -19,7 +19,7 @@ class ReadersTest {
     inner class ReadTestInput {
         @Test
         fun `given a day then read`() {
-            val result = Readers.readTestInput(1)
+            val result = Readers.readTestInput(1, 1)
             assertEquals(result, listOf("test_1", "test_2"))
         }
     }
