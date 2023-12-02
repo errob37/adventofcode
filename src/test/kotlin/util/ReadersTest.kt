@@ -11,7 +11,7 @@ class ReadersTest {
         @Test
         fun `given a day then read`() {
             val result = Readers.readInput(1)
-            assertEquals(result, "random_1\nrandom_2")
+            assertEquals(result, listOf("random_1", "random_2"))
         }
     }
 
@@ -20,7 +20,7 @@ class ReadersTest {
         @Test
         fun `given a day then read`() {
             val result = Readers.readTestInput(1)
-            assertEquals(result, "test_1\ntest_2")
+            assertEquals(result, listOf("test_1", "test_2"))
         }
     }
 }
