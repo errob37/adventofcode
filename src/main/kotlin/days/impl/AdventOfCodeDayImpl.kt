@@ -21,9 +21,7 @@ abstract class AdventOfCodeDayImpl(
 
         val impl = getImpl(part)
 
-        println("***** Testing part [$part] *****")
         val result = impl(input)
-        println("***** Testing part [$part] completed *****")
         if (result != expectedTestValue)
             throw RuntimeException("Implementation of part [$part] is incorrect. Expected [$expectedTestValue]. Got [$result]")
 

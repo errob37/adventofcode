@@ -3,6 +3,10 @@ package days.impl
 class DayOne() : AdventOfCodeDayImpl(1, 142L, 281L) {
     companion object {
         // Conversion without modifying the complete string
+        // So 'twooneight' line becomes:
+        // 1) twone1oneight
+        // 2) two2twone1oneight
+        // 3) two2twone1oneight8eight
         private val conversion = mapOf(
             "one" to "one1one",
             "two" to "two2two",
@@ -35,7 +39,7 @@ class DayOne() : AdventOfCodeDayImpl(1, 142L, 281L) {
 
         val tens = messedUpValue.find { it.isDigit() }?.toString()?.toLong() ?: 0L
         val unit = messedUpValue.findLast { it.isDigit() }?.toString()?.toLong() ?: 0L
-        return (tens * 10L + unit).also { println("[$messedUpCalibrationValue] has been transformed to [$it]") }
+        return (tens * 10L + unit)
     }
 
     private fun convertDigitsInLetter(messedUpCalibrationValue: String): String {
