@@ -26,7 +26,7 @@ class DayOne() : AdventOfCodeDayImpl(1, 142L, 281L) {
     override fun partTwo(input: List<String>): Long =
         input.sumOf { extractCalibrationValue(it, CalibrationSearchStrategy.DIGIT_OR_WORD) }
 
-    private fun extractCalibrationValue(
+    internal fun extractCalibrationValue(
         messedUpCalibrationValue: String,
         searchStrategy: CalibrationSearchStrategy
     ): Long {
@@ -42,14 +42,14 @@ class DayOne() : AdventOfCodeDayImpl(1, 142L, 281L) {
         return (tens * 10L + unit)
     }
 
-    private fun convertDigitsInLetter(messedUpCalibrationValue: String): String {
+    internal fun convertDigitsInLetter(messedUpCalibrationValue: String): String {
         var converted = messedUpCalibrationValue
         conversion.forEach { converted = converted.replace(it.key, it.value) }
         return converted
     }
 }
 
-private enum class CalibrationSearchStrategy {
+internal enum class CalibrationSearchStrategy {
     DIGIT_ONLY,
     DIGIT_OR_WORD
 }
