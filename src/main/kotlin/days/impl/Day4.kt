@@ -2,7 +2,7 @@ package days.impl
 
 import days.model.ScratchCard
 
-class DayFour : AdventOfCodeDayImpl(4, 13L, 30L) {
+class Day4 : AdventOfCodeDayImpl(4, 13L, 30L) {
     override fun partOne(input: List<String>): Long {
         return input
             .map { extractScratchCard(it) }

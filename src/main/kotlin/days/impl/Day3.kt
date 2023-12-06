@@ -2,7 +2,7 @@ package days.impl
 
 import days.model.*
 
-class DayThree() : AdventOfCodeDayImpl(3, 4361L, 467835L) {
+class Day3() : AdventOfCodeDayImpl(3, 4361L, 467835L) {
     override fun partOne(input: List<String>): Long {
         val engineSchematic = extractEngineSchematic(input)
         val (numbers, symbols) = extractPosition(engineSchematic)
@@ -89,7 +89,7 @@ class DayThree() : AdventOfCodeDayImpl(3, 4361L, 467835L) {
 
         return numbers
     }
-    
+
     internal fun toEngineSchematicInformation(column: Int, value: Char): SchematicInformation =
         SchematicInformation(
             column,
