@@ -1,3 +1,4 @@
+import days.impl.DayFour
 import days.impl.DayOne
 import days.impl.DayThree
 import days.impl.DayTwo
@@ -6,7 +7,7 @@ fun main() {
     println("Day 1 -> ${DayOne().answersForTheDay()}")
     println("Day 2 -> ${DayTwo().answersForTheDay()}")
     println("Day 3 -> ${DayThree().answersForTheDay()}")
-    println("Day 4 -> Not implemented yet")
+    println("Day 4 -> ${DayFour().answersForTheDay()}")
     println("Day 5 -> Not implemented yet")
     println("Day 6 -> Not implemented yet")
     println("Day 7 -> Not implemented yet")
