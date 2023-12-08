@@ -11,11 +11,24 @@ data class Almanac(
     fun getMinimumLocation(): Long {
         ensureChainMap()
 
-        return seeds.minOf {
-            chainMap!!.fold(it) { acc, resourcesMap ->
-                resourcesMap.map(acc)
+        return if (seedMode == SeedMode.UNIT) {
+            seeds.minOf {
+                chainMap!!.fold(it) { acc, resourcesMap ->
+                    resourcesMap.map(acc)
+                }
             }
+        } else {
+            var min = Long.MAX_VALUE
+            seeds.forEach {
+                val converted = chainMap!!.fold(it) { toConvert, resourcesMap -> resourcesMap.map(toConvert) }
+                if (converted < min) {
+                    min = converted
+                }
+            }
+
+            min
         }
+
     }
 
     private fun extractSeed(): List<Long> {
