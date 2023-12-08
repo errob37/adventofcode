@@ -2,11 +2,13 @@ package days.impl
 
 import days.AdventOfCodeDay
 import util.Readers
+import kotlin.time.measureTime
 
 abstract class AdventOfCodeDayImpl(
     private val dayNumber: Int,
     private val expectedValueTestPartOne: Long,
-    private val expectedValueTestPartTwo: Long
+    private val expectedValueTestPartTwo: Long,
+    private val expectedValuePartOne: Long? = null
 ) : AdventOfCodeDay {
 
     fun answersForTheDay(): Pair<Long, Long> {
@@ -17,16 +19,30 @@ abstract class AdventOfCodeDayImpl(
     }
 
     private fun answer(part: Int, expectedTestValue: Long): Long {
+        println("Day [$dayNumber] -> Starting part [$part]")
+
         var input = Readers.readTestInput(dayNumber, part)
 
         val impl = getImpl(part)
 
-        val result = impl(input)
-        if (result != expectedTestValue)
-            throw RuntimeException("Implementation of part [$part] is incorrect. Expected [$expectedTestValue]. Got [$result]")
+        val resultTest = impl(input)
+        if (resultTest != expectedTestValue)
+            handleIncorrectImplementation(resultTest, expectedTestValue, part)
+        println("Day [$dayNumber] -> Test part [$part] = OK")
 
-        input = Readers.readInput(dayNumber)
-        return impl(input)
+
+        println("Day [$dayNumber] -> Calculating result for part [$part]")
+        var result: Long?
+        measureTime {
+            input = Readers.readInput(dayNumber)
+            result = impl(input)
+
+            if (1 == part && expectedValuePartOne != null && expectedValuePartOne != result) {
+                handleIncorrectImplementation(result!!, expectedValuePartOne, part)
+            }
+        }.also { println("Day [$dayNumber] -> part [$part] took ${it.inWholeSeconds} seconds") }
+
+        return result!!.also { println("Day [$dayNumber] -> part [$part] ended. Result [$it]") }
     }
 
     private fun getImpl(part: Int) = if (part == 1) {
@@ -34,5 +50,8 @@ abstract class AdventOfCodeDayImpl(
     } else {
         { x: List<String> -> partTwo(x) }
     }
-}
 
+    private fun handleIncorrectImplementation(value: Long, expectedValue: Long, part: Int) {
+        throw RuntimeException("Implementation of part [$part] is incorrect. Expected [$expectedValue]. Got [$value]")
+    }
+}
