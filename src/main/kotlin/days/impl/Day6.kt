@@ -16,6 +16,7 @@ class Day6 : AdventOfCodeDayImpl(6, 288L, 71503L, 5133600L) {
 
         return Record
             .from(input, onlyOneRace)
+            .map { b.getWinningOptionCount(it) }
             .map { b.beat(it).size.toLong() }
             .fold(1L) { acc, it -> acc * it }
     }

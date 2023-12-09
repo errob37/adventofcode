@@ -40,7 +40,7 @@ abstract class AdventOfCodeDayImpl(
             if (1 == part && expectedValuePartOne != null && expectedValuePartOne != result) {
                 handleIncorrectImplementation(result!!, expectedValuePartOne, part)
             }
-        }.also { println("Day [$dayNumber] -> part [$part] took ${it.inWholeSeconds} seconds") }
+        }.also { println("Day [$dayNumber] -> part [$part] took ${it.inWholeMilliseconds} milliseconds") }
 
         return result!!.also { println("Day [$dayNumber] -> part [$part] ended. Result [$it]") }
     }

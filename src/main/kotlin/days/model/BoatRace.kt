@@ -1,26 +1,17 @@
 package days.model
 
 class Boat() {
-    fun beat(record: Record) =
-        getWinningOptions(record)
 
-    private fun getWinningOptions(record: Record) =
-        LongRange(0, record.duration)
-            .map { Option(it, record.duration - it) }
-            .filter { it.beating(record) }
+    fun getWinningOptionCount(record: Record): Long {
+        val beatingOptionPredicate = { it: Long -> (it * (record.duration - it)) > record.distance }
 
-}
+        val ticks = LongRange(1, record.duration)
+        val minTick = ticks.first(beatingOptionPredicate)
+        val maxTick = ticks.reversed().first(beatingOptionPredicate)
 
-class Option(
-    chargeTime: Long,
-    moveTime: Long
-) {
-    private val distance = chargeTime * moveTime
-
-
-    fun beating(record: Record): Boolean {
-        return distance > record.distance
+        return maxTick - minTick + 1
     }
+
 }
 
 class Record(
