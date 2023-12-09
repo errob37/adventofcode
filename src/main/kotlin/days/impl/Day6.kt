@@ -11,14 +11,10 @@ class Day6 : AdventOfCodeDayImpl(6, 288L, 71503L, 5133600L) {
     override fun partTwo(input: List<String>) =
         execute(input, true)
 
-    private fun execute(input: List<String>, onlyOneRace: Boolean): Long {
-        val b = Boat()
-
-        return Record
+    private fun execute(input: List<String>, onlyOneRace: Boolean) =
+        Record
             .from(input, onlyOneRace)
-            .map { b.getWinningOptionCount(it) }
-            .map { b.beat(it).size.toLong() }
+            .map { Boat().getWinningOptionCount(it) }
             .fold(1L) { acc, it -> acc * it }
-    }
 }
 
