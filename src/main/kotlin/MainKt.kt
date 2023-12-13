@@ -9,7 +9,7 @@ fun main() {
     println("Day [6] -> ${Day6().answersForTheDay()}")
     println("Day [7] -> ${Day7().answersForTheDay()}")
     println("Day [8] -> ${Day8().answersForTheDay()}")
-    println("Day [9] -> Not implemented yet")
+    println("Day [9] -> ${Day9().answersForTheDay()}")
     println("Day [10] -> Not implemented yet")
     println("Day [11] -> Not implemented yet")
     println("Day [12] -> Not implemented yet")
