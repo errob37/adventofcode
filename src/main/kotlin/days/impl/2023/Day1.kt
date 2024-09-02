@@ -1,6 +1,8 @@
-package days.impl
+package days.impl.`2023`
 
-class DayOne() : AdventOfCodeDayImpl(1, 142L, 281L) {
+import days.impl.AdventOfCodeDayImpl
+
+class DayOne() : AdventOfCodeDayImpl(2023, 1, 142L, 281L) {
     companion object {
         // Conversion without modifying the complete string
         // So 'twooneight' line becomes:

@@ -1,12 +1,13 @@
-package days.impl
+package days.impl.`2023`
 
+import days.impl.AdventOfCodeDayImpl
 import days.model.Color
 import days.model.Color.*
 import days.model.CubeRevealed
 import days.model.Draw
 import days.model.Game
 
-class Day2 : AdventOfCodeDayImpl(2, 8L, 2286L) {
+class Day2 : AdventOfCodeDayImpl(2023, 2, 8L, 2286L) {
 
     override fun partOne(input: List<String>): Long {
         val maximumRedAllowed = CubeRevealed(RED, 12)

@@ -1,8 +1,9 @@
-package days.impl
+package days.impl.`2023`
 
+import days.impl.AdventOfCodeDayImpl
 import days.model.ScratchCard
 
-class Day4 : AdventOfCodeDayImpl(4, 13L, 30L) {
+class Day4 : AdventOfCodeDayImpl(2023, 4, 13L, 30L) {
     override fun partOne(input: List<String>): Long {
         return input
             .map { extractScratchCard(it) }

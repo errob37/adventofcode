@@ -5,6 +5,7 @@ import util.Readers
 import kotlin.time.measureTime
 
 abstract class AdventOfCodeDayImpl(
+    private val year: Int,
     private val dayNumber: Int,
     private val expectedValueTestPartOne: Long,
     private val expectedValueTestPartTwo: Long,
@@ -19,30 +20,30 @@ abstract class AdventOfCodeDayImpl(
     }
 
     private fun answer(part: Int, expectedTestValue: Long): Long {
-        println("Day [$dayNumber] -> Starting part [$part]")
+        println("Year [$year], Day [$dayNumber] -> Starting part [$part]")
 
-        var input = Readers.readTestInput(dayNumber, part)
+        var input = Readers.readTestInput(year, dayNumber, part)
 
         val impl = getImpl(part)
 
         val resultTest = impl(input)
         if (resultTest != expectedTestValue)
             handleIncorrectImplementation(resultTest, expectedTestValue, part)
-        println("Day [$dayNumber] -> Test part [$part] = OK")
+        println("Year [$year], Day [$dayNumber] -> Test part [$part] = OK")
 
 
-        println("Day [$dayNumber] -> Calculating result for part [$part]")
+        println("Year [$year], Day [$dayNumber] -> Calculating result for part [$part]")
         var result: Long?
         measureTime {
-            input = Readers.readInput(dayNumber)
+            input = Readers.readInput(year, dayNumber)
             result = impl(input)
 
             if (1 == part && expectedValuePartOne != null && expectedValuePartOne != result) {
                 handleIncorrectImplementation(result!!, expectedValuePartOne, part)
             }
-        }.also { println("Day [$dayNumber] -> part [$part] took ${it.inWholeMilliseconds} milliseconds") }
+        }.also { println("Year [$year], Day [$dayNumber] -> part [$part] took ${it.inWholeMilliseconds} milliseconds") }
 
-        return result!!.also { println("Day [$dayNumber] -> part [$part] ended. Result [$it]") }
+        return result!!.also { println("Year [$year], Day [$dayNumber] -> part [$part] ended. Result [$it]") }
     }
 
     private fun getImpl(part: Int) = if (part == 1) {

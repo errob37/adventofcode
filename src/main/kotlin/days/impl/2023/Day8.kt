@@ -1,9 +1,10 @@
-package days.impl
+package days.impl.`2023`
 
+import days.impl.AdventOfCodeDayImpl
 import days.model.Network
 
 
-class Day8 : AdventOfCodeDayImpl(8, 6L, 6L, 16897L) {
+class Day8 : AdventOfCodeDayImpl(2023, 8, 6L, 6L, 16897L) {
 
     override fun partOne(input: List<String>) =
         execute(input, Regex("^AAA$"), Regex("^ZZZ$"))

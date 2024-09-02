@@ -1,8 +1,9 @@
-package days.impl
+package days.impl.`2023`
 
+import days.impl.AdventOfCodeDayImpl
 import days.model.*
 
-class Day3() : AdventOfCodeDayImpl(3, 4361L, 467835L) {
+class Day3() : AdventOfCodeDayImpl(2023, 3, 4361L, 467835L) {
     override fun partOne(input: List<String>): Long {
         val engineSchematic = extractEngineSchematic(input)
         val (numbers, symbols) = extractPosition(engineSchematic)

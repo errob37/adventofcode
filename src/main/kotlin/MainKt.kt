@@ -1,29 +1,8 @@
-import days.impl.*
+import days.impl.`2015`.Day4
 
 fun main() {
-    println("Day [1] -> ${DayOne().answersForTheDay()}")
-    println("Day [2] -> ${Day2().answersForTheDay()}")
-    println("Day [3] -> ${Day3().answersForTheDay()}")
-    println("Day [4] -> ${Day4().answersForTheDay()}")
-    println("Day [5] -> ${Day5().answersForTheDay()}")
-    println("Day [6] -> ${Day6().answersForTheDay()}")
-    println("Day [7] -> ${Day7().answersForTheDay()}")
-    println("Day [8] -> ${Day8().answersForTheDay()}")
-    println("Day [9] -> ${Day9().answersForTheDay()}")
-    println("Day [10] -> Not implemented yet")
-    println("Day [11] -> Not implemented yet")
-    println("Day [12] -> Not implemented yet")
-    println("Day [13] -> Not implemented yet")
-    println("Day [14] -> Not implemented yet")
-    println("Day [15] -> Not implemented yet")
-    println("Day [16] -> Not implemented yet")
-    println("Day [17] -> Not implemented yet")
-    println("Day [18] -> Not implemented yet")
-    println("Day [19] -> Not implemented yet")
-    println("Day [20] -> Not implemented yet")
-    println("Day [21] -> Not implemented yet")
-    println("Day [22] -> Not implemented yet")
-    println("Day [23] -> Not implemented yet")
-    println("Day [24] -> Not implemented yet")
-    println("Day [25] -> Not implemented yet")
+    //Day3().answersForTheDay();
+    Day4().answersForTheDay();
+
+
 }
