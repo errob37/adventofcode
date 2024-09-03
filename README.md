@@ -1,7 +1,7 @@
-# adventofcode-2023
+# adventofcode
 
-Advent of code 2023 in Kotlin.
+Advent of code in Kotlin.
 
 Just for fun
 
-Ref: https://adventofcode.com/2023
+Ref: https://adventofcode.com
