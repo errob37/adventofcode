@@ -2,13 +2,13 @@ package days.impl.`2015`
 
 import days.impl.AdventOfCodeDayImpl
 
-class Day3 : AdventOfCodeDayImpl(2015, 1, 2L, 11L, 2565L) {
+class Day3 : AdventOfCodeDayImpl(2015, 3, 2L, 11L, 2565L) {
     override fun partOne(input: List<String>): Long {
         val paths = mutableListOf(Point(0, 0))
 
         input[0].forEach { c -> paths.add(paths.last().move(c)) }
 
-        return paths.toSet().size.toLong();
+        return paths.toSet().size.toLong()
     }
 
     override fun partTwo(input: List<String>): Long {
@@ -23,8 +23,7 @@ class Day3 : AdventOfCodeDayImpl(2015, 1, 2L, 11L, 2565L) {
             }
         }
 
-
-        return (pathSanta + pathRoboSanta).toSet().size.toLong();
+        return (pathSanta + pathRoboSanta).toSet().size.toLong()
     }
 
     fun MutableList<Point>.addNewHouse(c: Char) = this.add(this.last().move(c))
